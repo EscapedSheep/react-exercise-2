@@ -24,7 +24,7 @@ class Product extends Component {
 
 Product.propTypes = {
   productName: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   onAddToCart: PropTypes.func,
 };
 

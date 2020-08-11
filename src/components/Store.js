@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import './Store.css';
+import fetchData from './fetchData';
 
 class Store extends Component {
   state = {
-    products: [
-      { name: 'iPhone11', price: 5999 },
-      { name: 'iPhoneXS', price: 5399 },
-      { name: 'iPhoneSE', price: 3599 },
-      { name: 'HUAWEI P40 Pro+', price: 7999 },
-      { name: 'HUAWEI Mate 30', price: 5000 },
-      { name: 'HUAWEI NOVA 7', price: 4000 },
-    ],
+    products: [],
     count: 0,
   };
+
+  componentDidMount() {
+    fetchData(URL)
+      .then((result) => {
+        this.setState({
+          products: result,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   onAddToCart = () => {
     this.setState({
