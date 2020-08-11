@@ -37,15 +37,31 @@ class Store extends Component {
             <span id="cartCount">{this.state.count}</span>
           </div>
         </div>
+        <h2 className="category">iPhone</h2>
         <div className="productsGrid">
-          {this.state.products.map((item) => (
-            <Product
-              productName={item.name}
-              price={item.price}
-              key={item.name}
-              onAddToCart={this.onAddToCart}
-            ></Product>
-          ))}
+          {this.state.products
+            .filter((item) => item.category === 'iPhone')
+            .map((item) => (
+              <Product
+                productName={item.name}
+                price={item.price}
+                key={item.name}
+                onAddToCart={this.onAddToCart}
+              ></Product>
+            ))}
+        </div>
+        <h2 className="category">HUAWEI</h2>
+        <div className="productsGrid">
+          {this.state.products
+            .filter((item) => item.category === 'HUAWEI')
+            .map((item) => (
+              <Product
+                productName={item.name}
+                price={item.price}
+                key={item.name}
+                onAddToCart={this.onAddToCart}
+              ></Product>
+            ))}
         </div>
       </div>
     );

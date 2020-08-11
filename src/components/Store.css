@@ -15,6 +15,10 @@
     grid-template-columns: 6fr 1fr;
 }
 
+.category {
+    padding: 10px;
+}
+
 .cart {
     justify-self: center;
     align-self: center;
