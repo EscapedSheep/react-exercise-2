@@ -1,0 +1,26 @@
+.productsGrid {
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.storeTop {
+    width: 580px;
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.cart {
+    justify-self: center;
+    align-self: center;
+}
+
+#cartCount {
+    background-color: red;
+    border-radius: 30%;
+}
