@@ -25,7 +25,27 @@ class Store extends Component {
     this.setState({
       count: this.state.count + 1,
     });
-  }
+  };
+
+  ProductGrid = (brand) => {
+    return (
+      <div>
+        <h2 className="category">{brand.name}</h2>
+        <div className="productsGrid">
+          {this.state.products
+            .filter((item) => item.category === brand.name)
+            .map((item) => (
+              <Product
+                productName={item.name}
+                price={item.price}
+                key={item.name}
+                onAddToCart={this.onAddToCart}
+              ></Product>
+            ))}
+        </div>
+      </div>
+    );
+  };
 
   render() {
     return (
@@ -34,35 +54,11 @@ class Store extends Component {
           <h1>Store</h1>
           <div className="cart">
             <span>🛒</span>
-            <span id="cartCount">{this.state.count}</span>
+            <div id="cartCount"> {this.state.count} </div>
           </div>
         </div>
-        <h2 className="category">iPhone</h2>
-        <div className="productsGrid">
-          {this.state.products
-            .filter((item) => item.category === 'iPhone')
-            .map((item) => (
-              <Product
-                productName={item.name}
-                price={item.price}
-                key={item.name}
-                onAddToCart={this.onAddToCart}
-              ></Product>
-            ))}
-        </div>
-        <h2 className="category">HUAWEI</h2>
-        <div className="productsGrid">
-          {this.state.products
-            .filter((item) => item.category === 'HUAWEI')
-            .map((item) => (
-              <Product
-                productName={item.name}
-                price={item.price}
-                key={item.name}
-                onAddToCart={this.onAddToCart}
-              ></Product>
-            ))}
-        </div>
+        <this.ProductGrid name="iPhone"></this.ProductGrid>
+        <this.ProductGrid name="HUAWEI"></this.ProductGrid>
       </div>
     );
   }

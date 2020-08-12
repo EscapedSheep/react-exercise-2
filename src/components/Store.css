@@ -20,11 +20,18 @@
 }
 
 .cart {
+    display: flex;
+    flex-direction: row;
     justify-self: center;
     align-self: center;
 }
 
 #cartCount {
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    width: 25px;
+    height: 20px;
     background-color: red;
-    border-radius: 30%;
+    border-radius: 40%;
 }
